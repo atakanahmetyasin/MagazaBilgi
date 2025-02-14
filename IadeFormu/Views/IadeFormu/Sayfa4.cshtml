@@ -1,0 +1,71 @@
+@model IadeFormu.Models.Sayfa4ViewModel
+
+
+<div class="container">
+    <h2>İade Formu - Ödeme İade Bilgileri</h2>
+    <form asp-action="Sayfa4" method="post">
+        <div>
+            <label for="OdemeIadeSecenegi">Ödeme İade Seçeneği:</label>
+            <select asp-for="OdemeIadeSecenegi" multiple>
+                <option value="Kredi Kartı">Kredi Kartı</option>
+                <option value="Havale / EFT">Havale / EFT</option>
+            </select>
+            <span asp-validation-for="OdemeIadeSecenegi" class="text-danger"></span>
+        </div>
+
+        <div>
+            <label for="BankaSecenegi">Banka Seçeneği:</label>
+            <select asp-for="BankaSecenegi" multiple>
+                <option value="Garanti BBVA">Garanti BBVA</option>
+                <option value="Yapıkredi Bankası">Yapıkredi Bankası</option>
+                <option value="Akbank">Akbank</option>
+                <option value="İş Bankası">İş Bankası</option>
+                <option value="Denizbank">Denizbank</option>
+                <option value="Ziraat Bankası">Ziraat Bankası</option>
+                <option value="Halkbank">Halkbank</option>
+                <option value="Diğer">Diğer</option>
+            </select>
+            <span asp-validation-for="BankaSecenegi" class="text-danger"></span>
+        </div>
+
+        <div>
+            <label for="IbanNumarasi">IBAN Numarası (Ödeme İade Seçeneği HAVALE / EFT ise):</label>
+            <p class="text-info">Lütfen yalnızca havale/EFT seçildiğinde IBAN girin.</p>
+            <input asp-for="IbanNumarasi" type="text" />
+            <span asp-validation-for="IbanNumarasi" class="text-danger"></span>
+        </div>
+
+        <div class="button-group">
+            <a asp-action="Sayfa3" class="btn btn-secondary">Geri</a>
+            <button type="submit" class="btn btn-primary">İleri</button>
+        </div>
+    </form>
+</div>
+
+<style>
+    .button-group {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 20px;
+    }
+
+    .btn {
+        background-color: #007bff;
+        border-color: #007bff;
+        color: white;
+        padding: 10px 20px;
+        font-size: 16px;
+        border-radius: 5px;
+        text-align: center;
+        text-decoration: none;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        width: 200px;
+        height: 45px;
+    }
+
+    .btn:hover {
+        background-color: #0056b3;
+        border-color: #0056b3;
+    }
+</style>

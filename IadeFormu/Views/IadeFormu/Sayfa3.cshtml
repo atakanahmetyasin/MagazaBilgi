@@ -1,0 +1,99 @@
+@model IadeFormu.Models.Sayfa3ViewModel
+
+
+<div class="container">
+    <h2>İade Formu - Satış ve İade Bilgileri</h2>
+    <form asp-action="Sayfa3" method="post">
+        <div>
+            <label for="SatisYapanPersonel">Satış Yapan Personel:</label>
+            <input asp-for="SatisYapanPersonel" type="text" required />
+            <span asp-validation-for="SatisYapanPersonel" class="error"></span>
+        </div>
+
+        <div>
+            <label for="IadeAlanPersonel">İade Alan Personel:</label>
+            <input asp-for="IadeAlanPersonel" type="text" required />
+            <span asp-validation-for="IadeAlanPersonel" class="error"></span>
+        </div>
+
+        <div>
+            <label for="SatisTarihi">Satış Tarihi:</label>
+            <input asp-for="SatisTarihi" type="date" required />
+            <span asp-validation-for="SatisTarihi" class="error"></span>
+        </div>
+
+        <div>
+            <label for="IadeTarihi">İade Tarihi:</label>
+            <input asp-for="IadeTarihi" type="date" required />
+            <span asp-validation-for="IadeTarihi" class="error"></span>
+        </div>
+
+        <div>
+            <label for="SatisTutari">Satış Tutarı (TL):</label>
+            <input asp-for="SatisTutari" type="number" step="0.01" required />
+            <span asp-validation-for="SatisTutari" class="error"></span>
+        </div>
+
+        <div>
+            <label for="IadeTutari">İade Tutarı (TL):</label>
+            <input asp-for="IadeTutari" type="number" step="0.01" required />
+            <span asp-validation-for="IadeTutari" class="error"></span>
+        </div>
+
+        <div>
+            <label for="IadeEdilenUrunGrubu">İade Edilen Ürün Grubu:</label>
+            <select asp-for="IadeEdilenUrunGrubu"  multiple>
+                <option value="Buzdolabı">Buzdolabı</option>
+                <option value="Derin Dondurucu">Derin Dondurucu</option>
+                <option value="Bulaşık Makinesi">Bulaşık Makinesi</option>
+                <option value="Çamaşır Makinesi">Çamaşır Makinesi</option>
+                <option value="Kurutma Makinesi">Kurutma Makinesi</option>
+                <option value="TV (HD, Full HD, Ultra HD...)">TV (HD, Full HD, Ultra HD...)</option>
+                <option value="Ankastre Grubu (Ocak, Fırın, Davlumbaz, Aspiratör...)">Ankastre Grubu (Ocak, Fırın, Davlumbaz, Aspiratör...)</option>
+                <option value="Isıtma - Soğutma (Klima, Vantilatör, Termosifon...)">Isıtma - Soğutma (Klima, Vantilatör, Termosifon...)</option>
+                <option value="KEA">KEA</option>
+                <option value="Diğer...(Ek Garanti v.b)">Diğer...(Ek Garanti v.b)</option>
+            </select>
+            <span asp-validation-for="IadeEdilenUrunGrubu" class="text-danger"></span>
+        </div>
+
+        <div>
+            <label for="IadeEdilenUrunModeli">İade Edilen Ürün Modeli:</label>
+            <input asp-for="IadeEdilenUrunModeli" type="text" required />
+            <span asp-validation-for="IadeEdilenUrunModeli" class="error"></span>
+        </div>
+
+        <div class="button-group">
+            <a asp-action="Sayfa2" class="btn btn-secondary">Geri</a>
+            <button type="submit" class="btn btn-primary">İleri</button>
+        </div>
+    </form>
+</div>
+
+<style>
+  .button-group {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+
+  .btn {
+    background-color: #007bff;
+    border-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 200px;
+    height: 45px;
+  }
+
+  .btn:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+  }
+</style>

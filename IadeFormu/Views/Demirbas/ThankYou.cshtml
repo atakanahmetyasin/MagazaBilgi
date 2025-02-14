@@ -1,0 +1,41 @@
+@{
+    ViewData["Title"] = "Teşekkürler";
+}
+
+<div class="container text-center" style="margin-top: 50px;">
+    <h2 style="color: #2c3e50;">Teşekkürler!</h2>
+    <p>Kaydınız başarıyla alınmış ve mail olarak iletilmiştir.</p>
+
+    <a asp-action="Index" class="btn btn-primary" style="margin-top: 20px;">Yeni Kayıt Oluştur</a>
+     <a asp-controller="Home" asp-action="Anasayfa" class="btn btn-primary" style="margin-top: 20px;">Anasayfaya Dön</a>
+</div>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+    }
+
+    .container {
+        max-width: 600px;
+        margin: auto;
+        padding: 20px;
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        background-color: #f9f9f9;
+    }
+
+    h2 {
+        font-size: 28px;
+        margin-bottom: 20px;
+    }
+
+    p {
+        font-size: 18px;
+        margin-bottom: 20px;
+    }
+
+    .btn-primary {
+        padding: 10px 20px;
+        font-size: 16px;
+    }
+</style>

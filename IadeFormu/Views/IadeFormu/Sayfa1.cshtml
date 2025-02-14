@@ -1,0 +1,43 @@
+@model IadeFormu.Models.IadeFormuViewModel
+
+<div class="container">
+    <h2>İade Formu - Mağaza Bilgisi</h2>
+    <form asp-action="Sayfa1" method="post">
+        <div>
+            <label for="GonderilecekEposta">E-posta:</label>
+            <input asp-for="GonderilecekEposta" type="email" required />
+            <span asp-validation-for="GonderilecekEposta" class="error"></span>
+        </div>
+        <div>
+            <label for="MagazaAdi">Mağaza Adı:</label>
+            <input asp-for="MagazaAdi" type="text" required />
+            <span asp-validation-for="MagazaAdi" class="error"></span>
+        </div>
+        <button type="submit">İleri</button>
+    </form>
+</div>
+<style>
+  .button-group {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+
+  .custom-button {
+    background-color: #007bff;
+    border-color: #007bff;
+    color: white;
+    padding: 8px 16px;
+    font-size: 16px;
+    border-radius: 5px;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .custom-button:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+  }
+</style>

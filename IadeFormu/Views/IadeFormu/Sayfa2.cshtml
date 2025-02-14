@@ -1,0 +1,51 @@
+
+@model IadeFormu.Models.Sayfa2ViewModel
+<div class="container">
+    <h2>İade Formu - Müşteri Bilgileri</h2>
+    <form asp-action="Sayfa2" method="post">
+        <div>
+            <label for="MusteriAdiSoyadi">Müşteri Adı Soyadı:</label>
+            <input asp-for="MusteriAdiSoyadi" type="text" required />
+            <span asp-validation-for="MusteriAdiSoyadi" class="text-danger"></span>
+        </div>
+
+        <div>
+            <label for="MusteriTcKimlikNo">T.C. Kimlik No:</label>
+            <input asp-for="MusteriTcKimlikNo" type="text" required />
+            <span asp-validation-for="MusteriTcKimlikNo" class="text-danger"></span>
+        </div>
+
+      <div class="button-group">
+            <a asp-action="Sayfa1" class="btn btn-secondary">Geri</a>
+            <button type="submit" class="btn btn-primary">İleri</button>
+        </div>
+    </form>
+</div>
+
+<style>
+  .button-group {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+
+  .btn {
+    background-color: #007bff;
+    border-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 200px;
+    height: 45px;
+  }
+
+  .btn:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+  }
+</style>

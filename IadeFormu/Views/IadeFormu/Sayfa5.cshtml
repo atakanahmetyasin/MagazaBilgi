@@ -1,0 +1,142 @@
+@model IadeFormu.Models.Sayfa5ViewModel
+
+<div class="container">
+    <h2>İade Formu - İade Ürün Hakkında ve İade Sebebi</h2>
+    <form asp-action="Sayfa5" method="post" enctype="multipart/form-data">
+        <div>
+            <label for="IadeSebebiAciklama">İade Sebebi Açıklama:</label>
+            <textarea asp-for="IadeSebebiAciklama" required></textarea>
+            <span asp-validation-for="IadeSebebiAciklama" class="text-danger"></span>
+        </div>
+
+        <div>
+            <label>Ürünün Depodan Çıkışı Oldu mu?</label>
+            <input asp-for="UrunDepodanCiktiMi" type="radio" value="true" required /> Evet
+            <input asp-for="UrunDepodanCiktiMi" type="radio" value="false" required /> Hayır
+        </div>
+
+        <div>
+            <label>Ürün Depoya İade Oldu mu?</label>
+            <input asp-for="UrunDepoyaIadeOlduMu" type="radio" value="true" required /> Evet
+            <input asp-for="UrunDepoyaIadeOlduMu" type="radio" value="false" required /> Hayır
+        </div>
+
+        <div>
+            <label>Servis İade Durumu:</label>
+            <input asp-for="ServisIadeDurumu" type="radio" value="true" required /> Evet
+            <input asp-for="ServisIadeDurumu" type="radio" value="false" required /> Hayır
+        </div>
+
+        <div>
+            <label for="Ekler">Zorunlu Belgeler (En az 3 dosya eklenmelidir):</label>
+            <ul>
+                <li>Satış Formu</li>
+                <li>İade Formu</li>
+                <li>Kredi Kartı Slip Görüntüsü</li>
+            </ul>
+
+            <div id="file-input-container">
+                <div class="file-input-wrapper">
+                    <input name="Ekler" type="file" required />
+                </div>
+                <div class="file-input-wrapper">
+                    <input name="Ekler" type="file" required />
+                </div>
+                <div class="file-input-wrapper">
+                    <input name="Ekler" type="file" required />
+                </div>
+            </div>
+
+            <div class="button-group">
+                <a asp-action="Sayfa4" class="btn btn-secondary">Geri</a>
+                <button type="button" class="btn btn-sm btn-primary custom-add-button" onclick="addFileInput()">Yeni
+                    Dosya Ekle</button>
+                <button type="submit" class="btn btn-primary" onclick="validateFiles(event)">Gönder</button>
+            </div>
+
+            <span class="text-danger" id="file-error-message" style="display:none;">En az 3 dosya eklenmelidir.</span>
+        </div>
+    </form>
+</div>
+
+<script>
+    function addFileInput() {
+        const container = document.getElementById('file-input-container');
+        const newFileInput = document.createElement('div');
+        newFileInput.classList.add('file-input-wrapper');
+        newFileInput.innerHTML = '<input name="Ekler" type="file" />';
+        container.appendChild(newFileInput);
+    }
+
+    function validateFiles(event) {
+        const fileInputs = document.querySelectorAll('input[name="Ekler"]');
+        let validFileCount = 0;
+
+        fileInputs.forEach(input => {
+            if (input.files.length > 0) {
+                validFileCount++;
+            }
+        });
+
+        if (validFileCount < 3) {
+            event.preventDefault();
+            document.getElementById('file-error-message').style.display = 'block';
+        } else {
+            document.getElementById('file-error-message').style.display = 'none';
+        }
+    }
+</script>
+
+<style>
+    .button-group {
+        display: flex;
+        gap: 10px;
+        margin-top: 10px;
+    }
+
+    .custom-add-button {
+        background-color: #007bff;
+        border-color: #007bff;
+        color: white;
+        padding: 4px 10px;
+        font-size: 14px;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    .custom-add-button:hover {
+        background-color: #0056b3;
+    }
+
+    .btn-primary {
+        margin-left: 10px;
+    }
+</style>
+
+<style>
+    .button-group {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 20px;
+    }
+
+    .btn {
+        background-color: #007bff;
+        border-color: #007bff;
+        color: white;
+        padding: 10px 20px;
+        font-size: 16px;
+        border-radius: 5px;
+        text-align: center;
+        text-decoration: none;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        width: 200px;
+        height: 45px;
+    }
+
+    .btn:hover {
+        background-color: #0056b3;
+        border-color: #0056b3;
+    }
+</style>

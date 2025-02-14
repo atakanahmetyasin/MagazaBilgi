@@ -1,0 +1,107 @@
+@model IadeFormu.Models.LoginViewModel
+
+<div class="container">
+    <h2 class="form-title">Giriş Yap</h2>
+
+    @if (ViewData.ModelState.ContainsKey("") && ViewData.ModelState[""].Errors.Count > 0)
+{
+    <div style="background-color: #ffdddd; color: #d8000c; padding: 10px; border: 1px solid #f5c6cb; border-radius: 5px; text-align: center; margin-bottom: 20px;">
+        @foreach (var error in ViewData.ModelState[""].Errors)
+        {
+            <p style="margin: 0;">@error.ErrorMessage</p>
+        }
+    </div>
+}
+
+    <form asp-action="Login" method="post" class="login-form">
+        <div class="form-group">
+            <label for="KullaniciAdi">Kullanıcı Adı:</label>
+            <input asp-for="KullaniciAdi" class="form-control" placeholder="Kullanıcı adınızı girin" />
+            <span asp-validation-for="KullaniciAdi" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label for="Sifre">Şifre:</label>
+            <input asp-for="Sifre" type="password" class="form-control" placeholder="Şifrenizi girin" />
+            <span asp-validation-for="Sifre" class="text-danger"></span>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-block">Giriş Yap</button>
+    </form>
+</div>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f0f2f5;
+        margin: 0;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .container {
+        width: 100%;
+        max-width: 500px;
+        background-color: white;
+        padding: 40px;
+        border-radius: 10px;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .form-title {
+        text-align: center;
+        color: #333;
+        margin-bottom: 20px;
+        font-size: 28px;
+        font-weight: bold;
+    }
+
+    .form-group {
+        margin-bottom: 20px;
+    }
+
+    label {
+        display: block;
+        font-weight: bold;
+        margin-bottom: 5px;
+        color: #555;
+    }
+
+    .form-control {
+        width: 100%;
+        padding: 12px;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        font-size: 16px;
+        box-sizing: border-box;
+    }
+
+    .form-control:focus {
+        border-color: #007bff;
+        outline: none;
+        box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+    }
+
+    .btn-block {
+        width: 100%;
+        padding: 12px;
+        background-color: #007bff;
+        border: none;
+        color: white;
+        border-radius: 6px;
+        font-size: 18px;
+        font-weight: bold;
+        cursor: pointer;
+    }
+
+    .btn-block:hover {
+        background-color: #0056b3;
+    }
+
+    .text-danger {
+        font-size: 14px;
+        margin-top: 5px;
+    }
+</style>

@@ -1,0 +1,183 @@
+@model IadeFormu.Models.DemirbasFormuViewModel
+
+<h2> Ürün Kaydı</h2>
+<form asp-action="Index" method="post" enctype="multipart/form-data">
+    <div>
+        <label for="DolduranKisiEposta">Dolduran Kişi E-posta:</label>
+        <input asp-for="DolduranKisiEposta" type="email" required />
+        <span asp-validation-for="DolduranKisiEposta" class="text-danger"></span>
+    </div>
+
+    <div>
+        <label for="Magaza">Mağaza:</label>
+        <input asp-for="Magaza" type="text" required />
+        <span asp-validation-for="Magaza" class="text-danger"></span>
+    </div>
+
+    <div>
+        <label for="Tarih">Tarih:</label>
+        <input asp-for="Tarih" type="date" required />
+        <span asp-validation-for="Tarih" class="text-danger"></span>
+    </div>
+
+    <div>
+        <label for="SozlesmeNo">Sözleşme No:</label>
+        <input asp-for="SozlesmeNo" type="text" required />
+        <span asp-validation-for="SozlesmeNo" class="text-danger"></span>
+    </div>
+
+    <div id="urunler-container">
+        <h4>Ürün Bilgileri</h4>
+        <div class="urun-entry" id="urun-entry-1">
+            <label>Ürün 1:</label>
+            <label>Stok Kod:</label>
+            <input name="Urunler[0].StokKod" type="text" required />
+            <label>Ürün Adı:</label>
+            <input name="Urunler[0].UrunAdi" type="text" required />
+            <label>Adet:</label>
+            <input name="Urunler[0].Adet" type="number" min="1" required />
+            <label>Açıklama:</label>
+            <textarea name="Urunler[0].Aciklama" rows="2" placeholder="Bu ürünle ilgili açıklama ekleyin."
+                required></textarea>
+        </div>
+    </div>
+
+    <button type="button" onclick="addUrunEntry()" class="btn btn-primary">Yeni Ürün Ekle</button>
+
+    <div id="dosya-container">
+        <h4>Dosya Ekle</h4>
+
+        <!-- İlk dosya girişine silme butonu eklenmiyor -->
+        <div class="dosya-entry" id="dosya-entry-1">
+            <label>Dosya 1:</label>
+            <input name="Dosyalar" type="file" required />
+        </div>
+    </div>
+
+    <button type="button" onclick="addDosyaEntry()" class="btn btn-primary" style="margin-bottom: 10px;">Yeni Dosya
+        Ekle</button>
+    <button type="submit" class="btn btn-primary" onclick="return validateForm()">Gönder</button>
+
+</form>
+
+<script>
+
+    function validateForm() {
+        const fileInputs = document.querySelectorAll('input[name="Dosyalar"]');
+        let isValid = true;
+
+        if (fileInputs.length === 0) {
+            alert("Lütfen en az bir dosya ekleyin.");
+            isValid = false;
+        }
+
+        fileInputs.forEach(input => {
+            if (input.files.length === 0) {
+                alert("Tüm dosya alanlarını doldurun.");
+                isValid = false;
+            }
+        });
+
+        return isValid;
+    }
+
+    let urunIndex = 1;
+    let dosyaIndex = 1;
+
+    function getNextIndex(prefix) {
+        const existingEntries = document.querySelectorAll(`.${prefix}-entry`);
+        for (let i = 1; i <= existingEntries.length + 1; i++) {
+            if (!document.getElementById(`${prefix}-entry-${i}`)) {
+                return i; // Boşta olan ilk indeks
+            }
+        }
+    }
+
+    function addUrunEntry() {
+        const index = getNextIndex("urun");
+        const container = document.getElementById("urunler-container");
+
+        const newEntry = `
+                <div class="urun-entry" id="urun-entry-${index}">
+                    <label>Ürün ${index}:</label>
+                    <button type="button" onclick="removeUrunEntry(${index})" class="remove-btn">&times;</button>
+                    <label>Stok Kod:</label>
+                    <input name="Urunler[${index - 1}].StokKod" type="text" required />
+                    <label>Ürün Adı:</label>
+                    <input name="Urunler[${index - 1}].UrunAdi" type="text" required />
+                    <label>Adet:</label>
+                    <input name="Urunler[${index - 1}].Adet" type="number" min="1" required />
+                    <label>Açıklama:</label>
+                    <textarea name="Urunler[${index - 1}].Aciklama" rows="2" placeholder="Bu ürünle ilgili açıklama ekleyin." required></textarea>
+                </div>
+            `;
+        container.insertAdjacentHTML("beforeend", newEntry);
+    }
+
+    function removeDosyaEntry(index) {
+        const entry = document.getElementById(`dosya-entry-${index}`);
+        if (entry) {
+            entry.remove();
+        }
+    }
+
+    function removeUrunEntry(index) {
+        const entry = document.getElementById(`urun-entry-${index}`);
+        if (entry) {
+            entry.remove();
+        }
+    }
+
+    function addDosyaEntry() {
+        dosyaIndex++;
+        const container = document.getElementById("dosya-container");
+
+        const newEntry = `
+        <div class="dosya-entry" id="dosya-entry-${dosyaIndex}">
+            <label>Dosya ${dosyaIndex}:</label>
+            <input name="Dosyalar" type="file" required />
+            <button type="button" onclick="removeDosyaEntry(${dosyaIndex})" class="remove-btn">&times;</button>
+        </div>
+    `;
+        container.insertAdjacentHTML("beforeend", newEntry);
+    }
+
+</script>
+
+
+<style>
+    .urun-entry,
+    .dosya-entry {
+        margin-bottom: 15px;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        position: relative;
+    }
+
+    .remove-btn {
+        position: absolute;
+        right: 10px;
+        top: 8%;
+        transform: translateY(-50%);
+        background-color: #ff4d4d;
+        border: none;
+        color: white;
+        font-size: 18px;
+        border-radius: 50%;
+        width: 30px;
+        height: 30px;
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .remove-btn:hover {
+        background-color: #cc0000;
+    }
+
+    .btn-secondary {
+        margin-top: 10px;
+    }
+</style>

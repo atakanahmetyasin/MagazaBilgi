@@ -1,0 +1,28 @@
+
+@{
+    ViewData["Title"] = "Anasayfa";
+}
+    Hoş geldiniz, <span style="color: #007bff;">@ViewBag.Magaza</span>
+
+<div class="container mt-5">
+    <div class="button-container">
+        <a asp-controller="IadeFormu" asp-action="Sayfa1" class="btn btn-primary custom-button">İade Formu</a>
+        <a asp-controller="Demirbas" asp-action="Index" class="btn btn-primary custom-button">Demirbaş Ürün Kaydı</a>
+    </div>
+</div>
+
+<style>
+    .button-container {
+        display: flex;
+        gap: 20px;
+        margin-top: 20px;
+        justify-content: space-between;
+    }
+
+    .custom-button {
+        padding: 15px 30px;
+        font-size: 18px;
+        border-radius: 5px;
+        text-decoration: none;
+    }
+</style>

@@ -1,0 +1,81 @@
+is_global = true
+build_property.TargetFramework = net7.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = IadeFormu
+build_property.RootNamespace = IadeFormu
+build_property.ProjectDir = C:\Users\AHMET\IadeFormu\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.RazorLangVersion = 7.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = C:\Users\AHMET\IadeFormu
+build_property._RazorSourceGeneratorDebug = 
+build_property.EffectiveAnalysisLevelStyle = 7.0
+build_property.EnableCodeStyleSeverity = 
+
+[C:/Users/AHMET/IadeFormu/Views/Account/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxMb2dpbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/AHMET/IadeFormu/Views/Demirbas/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVtaXJiYXNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/AHMET/IadeFormu/Views/Demirbas/ThankYou.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVtaXJiYXNcVGhhbmtZb3UuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/AHMET/IadeFormu/Views/Home/Anasayfa.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxBbmFzYXlmYS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/AHMET/IadeFormu/Views/IadeFormu/Sayfa1.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSWFkZUZvcm11XFNheWZhMS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/AHMET/IadeFormu/Views/IadeFormu/Sayfa2.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSWFkZUZvcm11XFNheWZhMi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/AHMET/IadeFormu/Views/IadeFormu/Sayfa3.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSWFkZUZvcm11XFNheWZhMy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/AHMET/IadeFormu/Views/IadeFormu/Sayfa4.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSWFkZUZvcm11XFNheWZhNC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/AHMET/IadeFormu/Views/IadeFormu/Sayfa5.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSWFkZUZvcm11XFNheWZhNS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/AHMET/IadeFormu/Views/IadeFormu/Tesekkurler.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSWFkZUZvcm11XFRlc2Vra3VybGVyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/AHMET/IadeFormu/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/AHMET/IadeFormu/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/AHMET/IadeFormu/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/AHMET/IadeFormu/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/AHMET/IadeFormu/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-j9g91kjona

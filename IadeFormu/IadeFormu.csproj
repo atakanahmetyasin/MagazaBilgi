@@ -1,0 +1,26 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <!-- Hedef framework: .NET Core 3.1 -->
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <!-- C# 10 dil sürümünü kullanıyoruz (global using gibi özellikler için) -->
+    <LangVersion>11.0</LangVersion>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- EPPlus, .NET Standard 2.0 tabanlı olduğu için .NET Core 3.1 ile uyumlu -->
+    <PackageReference Include="EPPlus" Version="5.8.0" />
+    <PackageReference Include="MailKit" Version="4.10.0" />
+    <!-- EF Core paketlerini .NET Core 3.1 ile uyumlu 3.1 sürümüne çekiyoruz -->
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.32" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.32" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <!-- System.Net.Http.Json: .NET Core 3.1 ile uyumlu bir sürüm (ör. 5.0.0) -->
+    <PackageReference Include="System.Net.Http.Json" Version="5.0.0" />
+      <PackageReference Include="Microsoft.AspNetCore.Http.Extensions" Version="2.2.0" />
+
+  </ItemGroup>
+
+</Project>
